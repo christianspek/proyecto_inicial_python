@@ -16,7 +16,12 @@ def leer_palabra_secreta(csvfilename):
 
 def pedir_letra(letras_usadas):
     letra = input("Ingrese una letra: ")
-    if letra in letras_usadas:
+
+    if len(letra) > 1:
+        print("Letra invalida")
+        letra = pedir_letra(letras_usadas)
+
+    elif letra in letras_usadas:
         print(f"Usted ya ingreso la letra {letra}")
         letra = pedir_letra(letras_usadas)
     return letra
